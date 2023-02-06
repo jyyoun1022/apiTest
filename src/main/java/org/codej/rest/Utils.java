@@ -12,7 +12,6 @@ public class Utils {
     public static Map<String,Object> stringToMap(String json) {
         ObjectMapper mapper = new ObjectMapper();
         Map<String,Object> map = null;
-
         try {
             map = mapper.readValue(json,Map.class);
             log.info("MAP ::: {}",map);
@@ -21,6 +20,7 @@ public class Utils {
         }
         return map;
     }
+
 
     public static ResponseApi convertResponse(Map<String,Object> map){
         ObjectMapper ob = new ObjectMapper();
