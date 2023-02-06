@@ -67,6 +67,35 @@ public class MyController {
         }
         return new ResponseEntity(responseHolidayArr, HttpStatus.OK);
     }
+    @GetMapping("/api/v11/weather-info")
+    public ResponseEntity<?> weatherInfo(String code,String date) throws IOException {
+        /** response -> body -> items -> item */
 
-
+        try {
+            Map<String, Object> weatherMap = requestUtils.weatherInfo(code, date);
+            Map<String, Object> bodyMap = (Map<String, Object>) weatherMap.get("response");
+            Map<String, Object> response = (Map<String, Object>) bodyMap.get("body");
+            int totalCount = (int) response.get("totalCount");
+            log.info("TOTAL ::: {}",totalCount);
+            if (totalCount <= 0) {
+                log.info("정보가 존재하지 않습니다.");
+                return new ResponseEntity<>("정보가 존재하지 않습니다. \n코드 종류는 3,12,24 입니다.",HttpStatus.NOT_FOUND);
+            } else if (totalCount == 1) {
+                Map<String, Object> items = (Map<String, Object>) response.get("items");
+                List<Map<String, Object>> item = (List<Map<String, Object>>) items.get("item");
+                Map<String, Object> result = item.get(0);
+                return new ResponseEntity<>(result,HttpStatus.OK);
+            } else {
+                Map<String, Object> items = (Map<String, Object>) response.get("items");
+                List<Map<String, Object>> item = (List<Map<String, Object>>) items.get("item");
+                for (Map<String, Object> itemMap : item) {
+                    log.info("ITEM_MAP ::: {}",itemMap);
+                }
+                return new ResponseEntity<>(item,HttpStatus.OK);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+    }
 }

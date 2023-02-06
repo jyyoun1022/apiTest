@@ -1,11 +1,13 @@
 package org.codej.rest.기상청;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.codej.rest.Utils;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -96,6 +98,11 @@ public class RequestUtils {
         rd.close();
         conn.disconnect();
         log.info("Service Result ::: {} " +sb.toString());
-        return null;
+
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String,Object> map = mapper.readValue(sb.toString(), Map.class);
+        return map;
+
+
     }
 }
