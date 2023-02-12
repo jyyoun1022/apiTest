@@ -1,4 +1,4 @@
-package org.codej.rest.algorithm;
+package org.codej.rest.algorithm.기본자료구조;
 
 public class SubString {
     public static void main(String[] args) {

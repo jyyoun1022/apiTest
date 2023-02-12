@@ -1,4 +1,4 @@
-package org.codej.rest.algorithm;
+package org.codej.rest.algorithm.기본자료구조;
 
 public class 접근제한자 {
     // 멤버는 객체 자신만의 속성이자 특징이므로 외부에 공개하는 것이 반드시 좋은 것은 아닙니다.

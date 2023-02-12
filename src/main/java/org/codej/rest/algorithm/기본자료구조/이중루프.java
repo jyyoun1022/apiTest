@@ -1,4 +1,4 @@
-package org.codej.rest.algorithm;
+package org.codej.rest.algorithm.기본자료구조;
 
 public class 이중루프{
     public static void main(String[] args) {
