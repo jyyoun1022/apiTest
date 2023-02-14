@@ -17,7 +17,7 @@ public class Reflection {
         Class<?> c3 = Class.forName("java.lang.String");
         // 아규먼트가 가리키는 문자열이 없을 수 있기 때문에 예외처리가 필요함
         //  클래스 이름을 문자열로 받을 수 있기 때문에 유지보수가 쉽다.
-        System.out.println(c3);`
+        System.out.println(c3);
         //  3. 모든 클래스에 내장된 'class'  스태틱ㅊ 변수를 통해서 얻기
 
         // 34. 먿,ㄴ 싱허ㅣㅇ
@@ -32,6 +32,15 @@ class Test02 {
         System.out.println(c1.getName());
         System.out.println(c1.getSimpleName());
         System.out.println(c1.getCanonicalName());
+    }
+}
+
+class Lab03 {
+    static int a;
+    public static void main(String[] args) {
+        int a;
+        int b = Lab03.a;
+        System.out.println(b);
     }
 }
 
