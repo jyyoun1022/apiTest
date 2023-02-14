@@ -1,6 +1,5 @@
-package org.codej.rest.algorithm.이진트리;
+package org.codej.rest.algorithm.이진검색;
 
-import javax.swing.text.Style;
 import java.util.*;
 
 public class BinSearch {
@@ -66,3 +65,4 @@ class ArraySortLab {
 
     }
 }
+
