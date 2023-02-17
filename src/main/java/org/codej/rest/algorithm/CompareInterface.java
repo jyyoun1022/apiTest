@@ -2,6 +2,7 @@ package org.codej.rest.algorithm;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.util.StringUtils;
 
 import java.util.Comparator;
 
@@ -29,15 +30,15 @@ class Student implements Comparable<Student> {
     public int compareTo(Student o) {
 
         try {
-//            int result = 0;
-//            if (this.age > o.age) {
-//                result = this.age - o.age;
-//            } else if (this.age == o.age) {
-//                result = 0;
-//            } else if (this.age < o.age) {
-//                result = this.age - o.age;
-//            }
-            return this.age-o.age;
+            int result = 0;
+            if (this.age > o.age) {
+                result = this.age - o.age;
+            } else if (this.age == o.age) {
+                result = 0;
+            } else if (this.age < o.age) {
+                result = this.age - o.age;
+            }
+            return result;
         } catch (StackOverflowError e) {
             System.out.println(e.getMessage());
         } catch (Exception e) {
@@ -104,7 +105,7 @@ class Student2Test {
             System.out.println("b 객체가 c 객체 보다 크다.");
         } else if (isBig == 0) {
             System.out.println("b 객체가 c 객체와 같다..");
-        } else {
+        } else if (!StringUtils.hasText(Integer.toString(isBig))){
             System.out.println("b 객체가 c 객체 보다 작다..");
         }
     }
