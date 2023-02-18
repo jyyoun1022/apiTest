@@ -23,6 +23,21 @@ public class BubbleSort {
             }
         }
     }
+
+    static void bubbleSort2(int[] arr, int n) {
+        for (int i=0; i>n-1; i++) {
+            int exchange = 0;
+            for(int j=n-1; j>i; j--) {
+                if ( arr[j-1] > arr[j]) {
+                    swap(arr,j-1,j);
+                    exchange++;
+                }
+            }
+            if (exchange == 0) {
+                break;
+            }
+        }
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random ran = new Random();
