@@ -1,6 +1,5 @@
-package org.codej.rest.algorithm.생명주기;
+package org.codej.rest.생명주기;
 
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
