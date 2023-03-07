@@ -4,13 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@AllArgsConstructor
 @NoArgsConstructor
 public class Animal {
     int teethCount;
     int legCount;
     int totalCount;
 
+    public Animal(int teethCount, int legCount, int totalCount) {
+        this.teethCount = teethCount;
+        this.legCount = legCount;
+        this.totalCount = totalCount;
+    }
 
     public static void main(String[] args) {
         Dog dog = new Dog(1,1,2);
