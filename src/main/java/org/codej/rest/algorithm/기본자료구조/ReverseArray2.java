@@ -17,6 +17,7 @@ public class ReverseArray2 {
         Collections.reverse(list);
         System.out.println(list);
         int[] result = Arrays.stream(list.toArray()).mapToInt(i -> (int) i).toArray();
+        Arrays.stream(list.toArray()).mapToInt(i -> (int) i).toArray();
         System.out.println("Result 1 ::: " + Arrays.toString(result));
     }
 }
