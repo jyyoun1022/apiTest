@@ -5,6 +5,7 @@ import org.codej.rest.algorithm.클래스.arr;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Game369 {
     public static void main(String[] args) {
@@ -17,6 +18,8 @@ public class Game369 {
                 .stream().filter(i -> i>0)
                 .filter(i -> i % 3 == 0).count();
         System.out.println(answer);
+
+
 
     }
 }
