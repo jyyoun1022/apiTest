@@ -9,25 +9,75 @@ public class  RankCounting{
          * 영어점수,수학점수 담은 2차원 배열
          * 등수를 매긴 등수를 담은 배열을 return
          */
-        int[][] score = {{80, 70}, {70, 80}, {30, 50}, {90, 100}, {100, 90}, {100, 100}, {10, 30}};
+//        int[][] score = {{80, 70}, {70, 80}, {30, 50}, {90, 100}, {100, 90}, {100, 100}, {10, 30}};
+//
+//        int[] answer = new int[score.length];
+//
+//        List<Integer> list = new ArrayList<>();
+//
+//        for(int i = 0; i < score.length; i++){
+//            list.add(score[i][0]+score[i][1]);
+//        }
+//        list.sort(Comparator.reverseOrder());
+//
+//
+//        for(int i=0; i< score.length; i++) {
+//            answer[i] = list.indexOf(score[i][0]+score[i][1])+1;
+//            System.out.println(list.indexOf(score[i][0]+score[i][1])+1);
+//        }
+//        System.out.println(Arrays.toString(answer));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        int[][] score = {{80, 70}, {70, 80}, {30, 50}, {90, 100}, {100, 90}, {100, 100}, {10, 30}};
         int[] answer = new int[score.length];
 
         List<Integer> list = new ArrayList<>();
 
-        for(int i = 0; i < score.length; i++){
-            list.add(score[i][0]+score[i][1]);
+        for(int i =0; i<score.length; i++){
+            list.add(score[i][0] + score[i][1]);
         }
-        System.out.println("list = " + list);
+        System.out.println("Original List ::: "+list);
         list.sort(Comparator.reverseOrder());
-        System.out.println("reverse = " + list);
+        System.out.println("Reverse List :::: " + list);
 
-
-        for(int i=0; i< score.length; i++) {
-            answer[i] = list.indexOf(score[i][0]+score[i][1])+1;
-            System.out.println(list.indexOf(score[i][0]+score[i][1])+1);
+        for (int i=0; i< answer.length; i++){
+            answer[i] = list.indexOf(score[i][0] + score[i][1])+1;
         }
         System.out.println(Arrays.toString(answer));
+
     }
 
 }
