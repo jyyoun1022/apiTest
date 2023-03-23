@@ -10,13 +10,14 @@ import java.math.BigInteger;
 @AllArgsConstructor
 @Builder
 @ToString
-public class Employee implements Comparable<Employee>{
+public class Employee {
 
     private long id;
     private String name;
     private String department;
     private String position;
     private BigInteger sales;
+    private Integer price;
 
 
     /**
@@ -24,11 +25,11 @@ public class Employee implements Comparable<Employee>{
      * A = B 인경우 => 0 을 리턴
      * A > B 인경우 => 양수를 리턴
      */
-    @Override
-    public int compareTo(Employee o) {
-//        return this.id - o.id;
-//        return this.department.compareTo(o.department);
-//        return this.name.compareToIgnoreCase(o.name);
-        return this.position.compareToIgnoreCase(o.position);
-    }
+//    @Override
+//    public int compareTo(Employee o) {
+////        return this.id - o.id;
+////        return this.department.compareTo(o.department);
+////        return this.name.compareToIgnoreCase(o.name);
+//        return this.position.compareToIgnoreCase(o.position);
+//    }
 }

@@ -11,24 +11,27 @@ public class EmployeeMain {
 
         Employee employee1 = Employee.builder()
                 .id(1)
-                .name("jdk")
+                .name("jdk17")
                 .department("솔루션개발1")
                 .position("연구언")
                 .sales(new BigInteger("15000"))
+                .price(5000)
                 .build();
         Employee employee2 = Employee.builder()
                 .id(2)
-                .name("jdk15")
+                .name("jdk17")
                 .department("솔루션개발1")
                 .position("연구원")
                 .sales(new BigInteger("2000"))
+                .price(3000)
                 .build();
         Employee employee3 = Employee.builder()
                 .id(3)
                 .name("jdk17")
                 .department("솔루션개발3")
                 .position("연구언")
-                .sales(new BigInteger("20000"))
+                .sales(new BigInteger("25000"))
+                .price(2000)
                 .build();
         Employee employee4 = Employee.builder()
                 .id(4)
@@ -36,6 +39,7 @@ public class EmployeeMain {
                 .department("솔루션개발1")
                 .position("연구언")
                 .sales(new BigInteger("25000"))
+                .price(8000)
                 .build();
 
         List<Employee> list = new ArrayList<>();
@@ -45,29 +49,40 @@ public class EmployeeMain {
         list.add(employee3);
         list.add(employee4);
 
-        for (Employee employee : list) {
-            System.out.println(employee);
+        for (Employee emp : list) {
+            System.out.println(emp);
         }
-
-        Collections.sort(list);
         System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::");
 
-        for (Employee employee : list) {
-            System.out.println(employee);
-        }
-
-
-        Comparator<Employee> employeeComparator = new Comparator<>(){
-
+        list.sort(new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
-                return o2.getSales().intValue() - o1.getSales().intValue();
+                System.out.println("_______");
+                System.out.println(o1.getPrice());
+                System.out.println(o2.getPrice());
+                if(o1.getName() == o2.getName()){
+                    if (o1.getPrice() < o2.getPrice()){
+                        System.out.printf("o1 < o2");
+                        System.out.println(o1.getPrice() < o2.getPrice());
+                        return -1;
+                    }
+                    else if(o1.getPrice() > o2.getPrice()) {
+                        System.out.printf("o1 > o2");
+                        System.out.println( o1.getPrice() < o2.getPrice());
+
+                        return 1;
+                    }
+                    else return 0;
+                } else {
+                    return o1.getPrice() - o2.getPrice();
+                }
             }
-        };
+        });
         System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::");
-        Collections.sort(list,employeeComparator);
+
         for (Employee employee : list) {
-            System.out.println(employee);
+            System.out.println(employee.getPrice());
         }
+
     }
 }
