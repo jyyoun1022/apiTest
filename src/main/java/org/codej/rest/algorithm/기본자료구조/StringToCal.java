@@ -2,7 +2,7 @@ package org.codej.rest.algorithm.기본자료구조;
 
 import java.util.Arrays;
 
-public class AlgoLab {
+public class StringToCal {
     public static void main(String[] args) {
         String min = "1 + 24 + 3 + 40 - 21";
         min = min.replaceAll("- ", "-").replaceAll("[+] ","").trim();
