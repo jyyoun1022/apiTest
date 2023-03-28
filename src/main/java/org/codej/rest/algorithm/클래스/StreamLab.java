@@ -12,8 +12,8 @@ public class StreamLab {
 //       basicStream();
 //        streamReader();
 //        bufferTest();
-            bufferSwitch();
-
+//            bufferSwitch();
+        doWhile();
     }
     private static void basicStream() throws IOException {
         /**
@@ -107,6 +107,30 @@ public class StreamLab {
                 break;
             }
         }
+        bw.flush();
+        bw.close();
+    }
+    private static void doWhile() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        int answer =0;
+        int num =0;
+
+        answer = (int) ((Math.random() * 100) + 1);
+
+        do {
+            System.out.print("나의 숫자를 맞쳐봐 : ");
+            num = Integer.parseInt(br.readLine());
+            if(answer > num){
+                System.out.println("입력한 숫자에 +"+(answer-num) +"을 해보실래여?");
+            } else if(answer < num) {
+                System.out.println("입력한 숫자에 -"+(num-answer) +"을 해보실래여?");
+            }
+        } while (answer != num);
+        bw.write("정답입니다 연금술사!?");
+
+        br.close();
         bw.flush();
         bw.close();
     }
