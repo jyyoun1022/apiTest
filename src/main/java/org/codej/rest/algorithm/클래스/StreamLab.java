@@ -11,8 +11,8 @@ public class StreamLab {
     public static void main(String[] args) throws IOException {
 //       basicStream();
 //        streamReader();
-        bufferTest();
-
+//        bufferTest();
+            bufferSwitch();
 
     }
     private static void basicStream() throws IOException {
@@ -86,5 +86,28 @@ public class StreamLab {
         bw.flush(); //남은 값 출력  && buffer 초기화
         bw.close();
 
+    }
+    private static void bufferSwitch() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String str = br.readLine();
+        br.close();
+
+        switch (str){
+            case "1" -> {
+                bw.write("1번 입니다.");
+                break;
+            }
+            case "2" -> {
+                bw.write("2번 입니다.");
+                break;
+            }
+            case "3" -> {
+                bw.write("3번 입니다.");
+                break;
+            }
+        }
+        bw.flush();
+        bw.close();
     }
 }
